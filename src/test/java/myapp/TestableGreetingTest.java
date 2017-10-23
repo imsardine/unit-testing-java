@@ -37,28 +37,28 @@ public class TestableGreetingTest {
     public void greet_SunRise_GoodMorning() {
         when(timer.currentTimeMillis()).thenReturn(at("2017-10-25 06:10:00"));
         greeting.run();
-        assertEquals("Good morning!\n", out.toString());
+        assertEquals("Good morning!" + System.lineSeparator(), out.toString());
     }
 
     @Test
     public void greet_LaunchTime_GoodAfternoon() {
         when(timer.currentTimeMillis()).thenReturn(at("2017-10-25 12:10:00"));
         greeting.run();
-        assertEquals("Good afternoon!\n", out.toString());
+        assertEquals("Good afternoon!" + System.lineSeparator(), out.toString());
     }
 
     @Test
     public void greet_Sunset_GoodEvening() {
         when(timer.currentTimeMillis()).thenReturn(at("2017-10-25 18:00:00"));
         greeting.run();
-        assertEquals("Good evening!\n", out.toString());
+        assertEquals("Good evening!" + System.lineSeparator(), out.toString());
     }
 
     @Test
     public void greet_Midnight_GoodEvening() {
         when(timer.currentTimeMillis()).thenReturn(at("2017-10-25 00:30:00"));
         greeting.run();
-        assertEquals("Zzz...\n", out.toString());
+        assertEquals("Zzz..." + System.lineSeparator(), out.toString());
     }
 
     private long at(String time) {

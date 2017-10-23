@@ -23,17 +23,17 @@ public class HelloWorldTest {
     public void sayHello_NoArg_HelloWorld() {
         // Arrange preconditions
         String output = run(); // Act on xxx under test (ex. CUT, AUT, SUT)
-        assertEquals("Hello, World!\n", output); // Assert expected results
+        assertEquals("Hello, World!" + System.lineSeparator(), output); // Assert expected results
     }
 
     @Test
     public void sayHello_SingleArg_HelloFirstArg() {
-        assertEquals("Hello, Java!\n", run("Java"));
+        assertEquals("Hello, Java!" + System.lineSeparator(), run("Java"));
     }
 
     @Test
     public void sayHello_SingleArgWithWhitespace_HelloFirstArg() {
-        assertEquals("Hello, Java Guys!\n", run("Java Guys"));
+        assertEquals("Hello, Java Guys!" + System.lineSeparator(), run("Java Guys"));
     }
 
     private String run(String... args) {
